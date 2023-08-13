@@ -18,6 +18,8 @@
             const slideImg = $('#section1 img');
             const imgRate = 0.7471490365709792;
 
+            slideImg.css({width: imgRate * winW});
+
             $(window).resize(function(){
                 winW = $(window).innerwidth;
                 slideImg.css({width: imgRate * winW});
@@ -134,6 +136,19 @@
             const nextBtn = $('#section2 .next-btn');
             const prevBtn = $('#section2 .prev-btn');
 
+                if(winW>960){
+                    slideWidth = (sec2Con.innerWidth())/4;
+                }
+                else{
+                    if(winW>480){
+                        slideWidth = (sec2Con.innerWidth())/4;
+                    }
+                    else{
+                        slideWidth = (sec2Con.innerWidth())/2;
+                    }
+                }
+                slideWrap.css({width: slideWidth*20 });
+
             $(window).resize(function(){
                 winW = $(window).innerWidth();
                 if(winW>960){
@@ -141,7 +156,7 @@
                 }
                 else{
                     if(winW>480){
-                        slideWidth = (sec2Con.innerWidth())/2;
+                        slideWidth = (sec2Con.innerWidth())/4;
                     }
                     else{
                         slideWidth = (sec2Con.innerWidth())/2;
